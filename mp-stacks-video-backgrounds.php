@@ -3,7 +3,7 @@
 Plugin Name: MP Stacks + Video Backgrounds
 Plugin URI: http://mintplugins.com/plugins/mp-stacks-video-backgrounds
 Description: This is an addon to the MP Stacks plugin which allows you to have a looping video in the background of a brick.
-Version: 1.0.0.0
+Version: 1.0.0.1
 Author: Mint Plugins
 Author URI: http://mintplugins.com
 Text Domain: mp_stacks_video_backgrounds
@@ -34,7 +34,7 @@ License: GPL2
 */
 // Plugin version
 if( !defined( 'MP_STACKS_VIDEO_BACKGROUNDS_VERSION' ) )
-	define( 'MP_STACKS_VIDEO_BACKGROUNDS_VERSION', '1.0.0.0' );
+	define( 'MP_STACKS_VIDEO_BACKGROUNDS_VERSION', '1.0.0.1' );
 
 // Plugin Folder URL
 if( !defined( 'MP_STACKS_VIDEO_BACKGROUNDS_PLUGIN_URL' ) )

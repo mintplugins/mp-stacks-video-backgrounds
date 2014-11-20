@@ -3,8 +3,8 @@ Contributors: johnstonphilip
 Donate link: http://mintplugins.com/
 Tags: page, builder, stacks, bricks
 Requires at least: 3.5
-Tested up to: 3.9
-Stable tag: 1.0.0.0
+Tested up to: 4.1
+Stable tag: 1.0.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,11 @@ See full instructions at http://mintplugins.com/doc/mp-stacks
 
 
 == Changelog ==
+
+= 1.0.0.1 = November 20, 2014
+* Put the video BG meta options in a showhider to organize the options better.
+* Made it so videos don’t show if google bot - because it slows down the index.
+* Added HTML Changelog 
 
 = 1.0.0.0 = August 7, 2014
 * Original release
