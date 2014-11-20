@@ -29,7 +29,7 @@ function mp_stacks_video_backgrounds_additional_items_array($items_array) {
 	foreach ( $items_array as $item ){
 		
 		//If the current loop is for the brick_bg_image
-		if ($item['field_id'] == 'brick_display_type'){
+		if ($item['field_id'] == 'brick_bg_image_opacity'){
 			
 			//Split the array after the array with the field containing 'brick_bg_image'
 			$options_prior = array_slice($items_array, 0, $counter+1, true);
@@ -49,34 +49,39 @@ function mp_stacks_video_backgrounds_additional_items_array($items_array) {
 		//Add the first options to the return array
 		$return_items_array = $options_prior;
 		
-		$mp_stacks_video_backgrounds_src_option = array(
-				'field_id'			=> 'brick_bg_video_source',
-				'field_title' 	=> __( 'Background Video Source', 'mp_stacks'),
-				'field_description' 	=> 'Where is this video hosted',
-				'field_type' 	=> 'select',
-				'field_value' => '',
-				'field_select_values' => array( 'youtube' => 'YouTube', 'vimeo' => 'Vimeo', 'mp4' => 'I will upload an MP4 here' )
+		$mp_stacks_video_backgrounds_showhider_option = array(
+			'field_id'			=> 'brick_bg_video_showhider',
+			'field_title' 	=> __( 'Background Video', 'mp_stacks'),
+			'field_description' 	=> 'Where is this video hosted',
+			'field_type' 	=> 'showhider',
+			'field_value' => '',
 		);
+			
+		//Add new option to array  for main image lightbox
+		array_push($return_items_array, $mp_stacks_video_backgrounds_showhider_option );
 		
-		//Globalize the and populate the mp_stacks_googlefonts_items_array (do this before filter hooks are run)
-		global $global_mp_stacks_video_backgrounds_src_option;
-		$global_mp_stacks_video_backgrounds_src_option = $mp_stacks_video_backgrounds_src_option;
-	
+		$mp_stacks_video_backgrounds_src_option = array(
+			'field_id'			=> 'brick_bg_video_source',
+			'field_title' 	=> __( 'Background Video Source', 'mp_stacks'),
+			'field_description' 	=> 'Where is this video hosted',
+			'field_type' 	=> 'select',
+			'field_value' => '',
+			'field_select_values' => array( 'youtube' => 'YouTube', 'vimeo' => 'Vimeo', 'mp4' => 'I will upload an MP4 here' ),
+			'field_showhider' => 'brick_bg_video_showhider'
+		);
+			
 		//Add new option to array  for main image lightbox
 		array_push($return_items_array, $mp_stacks_video_backgrounds_src_option );
 		
 		$mp_stacks_video_backgrounds_url_option =  array(
-				'field_id'			=> 'brick_bg_video',
-				'field_title' 	=> __( 'Background Video', 'mp_stacks'),
-				'field_description' 	=> 'Upload/Enter the URL to the video',
-				'field_type' 	=> 'textarea',
-				'field_value' => '',
-			);
-		
-		//Globalize the and populate the mp_stacks_googlefonts_items_array (do this before filter hooks are run)
-		global $global_mp_stacks_video_backgrounds_url_option;
-		$global_mp_stacks_video_backgrounds_url_option = $mp_stacks_video_backgrounds_url_option;
-		
+			'field_id'			=> 'brick_bg_video',
+			'field_title' 	=> __( 'Background Video', 'mp_stacks'),
+			'field_description' 	=> 'Upload/Enter the URL to the video',
+			'field_type' 	=> 'textarea',
+			'field_value' => '',
+			'field_showhider' => 'brick_bg_video_showhider'
+		);
+			
 		//Add new option to array  for main image lightbox
 		array_push($return_items_array, $mp_stacks_video_backgrounds_url_option	);
 		

@@ -25,6 +25,11 @@
  */
 function mp_stacks_video_background( $html_output, $post_id ){ 
 
+	 //If this is the google bot, don't load as it adds too much to download for no good reason
+	if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
+		return false;
+	}
+
 	$brick_bg_video_source = get_post_meta( $post_id, 'brick_bg_video_source', true );
 	
 	$brick_bg_video = get_post_meta( $post_id, 'brick_bg_video', true );
