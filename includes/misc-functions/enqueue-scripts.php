@@ -17,10 +17,10 @@
 function mp_stacks_video_backgrounds_enqueue_scripts(){ 
 	
 	//YouTube API JS
-	wp_enqueue_script( 'mp_stacks_video_youtube_js', plugins_url('js/youtube.js', dirname(__FILE__)), array('jquery'), false, true );	
+	wp_enqueue_script( 'mp_stacks_video_youtube_js', plugins_url('js/youtube.js', dirname(__FILE__)), array('jquery', 'mp_stacks_front_end_js'), false, true );	
 	
 	//Video Backgrounds JS
-	wp_enqueue_script( 'mp_stacks_video_bg_js', plugins_url('js/video-bgs.js', dirname(__FILE__)), array('jquery'), false, true );	
+	wp_enqueue_script( 'mp_stacks_video_bg_js', plugins_url('js/video-bgs.js', dirname(__FILE__)), array('jquery', 'mp_stacks_front_end_js'), false, true );	
 	
 	
 }

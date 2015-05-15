@@ -21,77 +21,51 @@
  * @see      MP_CORE_Metabox
  * @return   void
  */
-function mp_stacks_video_backgrounds_additional_items_array($items_array) {
+function mp_stacks_video_backgrounds_additional_items_array( $items_array ) {
 	
-	$counter = 0;
-	
-	//Loop through passed-in metabox fields
-	foreach ( $items_array as $item ){
+	$new_items = array( 
 		
-		//If the current loop is for the brick_bg_image
-		if ($item['field_id'] == 'brick_bg_image_opacity'){
-			
-			//Split the array after the array with the field containing 'brick_bg_image'
-			$options_prior = array_slice($items_array, 0, $counter+1, true);
-			$options_after = array_slice($items_array, $counter+1);
-			
-			break;
-						
-		}
-		
-		//Increment Counter
-		$counter = $counter + 1;
-	
-	}
-	
-	if ( !empty($options_prior) ){
-		
-		//Add the first options to the return array
-		$return_items_array = $options_prior;
-		
-		$mp_stacks_video_backgrounds_showhider_option = array(
+		'mp_stacks_video_backgrounds_showhider_option' => array(
 			'field_id'			=> 'brick_bg_video_showhider',
 			'field_title' 	=> __( 'Background Video', 'mp_stacks'),
 			'field_description' 	=> 'Where is this video hosted',
 			'field_type' 	=> 'showhider',
 			'field_value' => '',
-		);
-			
-		//Add new option to array  for main image lightbox
-		array_push($return_items_array, $mp_stacks_video_backgrounds_showhider_option );
+		),
 		
-		$mp_stacks_video_backgrounds_src_option = array(
+		'mp_stacks_video_backgrounds_src_option' => array(
 			'field_id'			=> 'brick_bg_video_source',
 			'field_title' 	=> __( 'Background Video Source', 'mp_stacks'),
 			'field_description' 	=> 'Where is this video hosted',
 			'field_type' 	=> 'select',
 			'field_value' => '',
-			'field_select_values' => array( 'youtube' => 'YouTube', 'vimeo' => 'Vimeo', 'mp4' => 'I will upload an MP4 here' ),
+			'field_select_values' => array( 'youtube' => 'YouTube', 'vimeo' => 'Vimeo', 'custom' => 'Custom Video File' ),
 			'field_showhider' => 'brick_bg_video_showhider'
-		);
-			
-		//Add new option to array  for main image lightbox
-		array_push($return_items_array, $mp_stacks_video_backgrounds_src_option );
+		),
 		
-		$mp_stacks_video_backgrounds_url_option =  array(
+		'mp_stacks_video_backgrounds_url_option' =>  array(
 			'field_id'			=> 'brick_bg_video',
 			'field_title' 	=> __( 'Background Video', 'mp_stacks'),
-			'field_description' 	=> 'Upload/Enter the URL to the video',
+			'field_description' 	=> 'Enter the URL to the video page',
 			'field_type' 	=> 'textarea',
 			'field_value' => '',
+			'field_conditional_id' => 'brick_bg_video_source',
+			'field_conditional_values' => array( 'youtube', 'vimeo' ),
 			'field_showhider' => 'brick_bg_video_showhider'
-		);
-			
-		//Add new option to array  for main image lightbox
-		array_push($return_items_array, $mp_stacks_video_backgrounds_url_option	);
+		),
+		'mp_stacks_video_backgrounds_custom_url' =>  array(
+			'field_id'			=> 'brick_bg_video_custom_url',
+			'field_title' 	=> __( 'Background Video URL', 'mp_stacks'),
+			'field_description' 	=> 'Upload/Enter the URL to the video',
+			'field_type' 	=> 'mediaupload',
+			'field_value' => '',
+			'field_conditional_id' => 'brick_bg_video_source',
+			'field_conditional_values' => array( 'custom' ),
+			'field_showhider' => 'brick_bg_video_showhider'
+		)
+	);
+	
+	return mp_core_insert_meta_fields( $items_array, $new_items, 'brick_bg_hook_anchor_0' );
 		
-		foreach ($options_after as $option){
-			//Add all fields that came after
-			array_push($return_items_array, $option);
-		}
-		
-	}
-		
-    return $return_items_array;
 }
 add_filter('mp_stacks_bg_items_array','mp_stacks_video_backgrounds_additional_items_array');

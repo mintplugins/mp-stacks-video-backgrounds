@@ -4,7 +4,7 @@ Donate link: http://mintplugins.com/
 Tags: page, builder, stacks, bricks
 Requires at least: 3.5
 Tested up to: 4.1
-Stable tag: 1.0.0.1
+Stable tag: 1.0.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,11 @@ See full instructions at http://mintplugins.com/doc/mp-stacks
 
 
 == Changelog ==
+
+= 1.0.0.2 = May 15, 2015
+* Proper video sizing for smaller devices.
+* Make videos truly in the background so if you double click the brick, it doesn't affect the video. 
+* Added new Meta Field for custom video URL so users can easily upload their own video using the WP Media Library.
 
 = 1.0.0.1 = November 20, 2014
 * Put the video BG meta options in a showhider to organize the options better.
