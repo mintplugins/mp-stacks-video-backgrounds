@@ -48,7 +48,7 @@ jQuery(document).ready(function($){
 			
 			//For any locally hosted videos, set the src now so it doesn't lag
 			$('.mp-stacks-video-bg-custom').each(function(){
-			$(this).attr('src', $(this).attr('mp_stacks_video_url') );
+			$(this).attr('src', $(this).attr('mp_stacks_bg_video_url') );
 		});
 		});
 		
