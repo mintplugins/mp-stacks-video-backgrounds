@@ -62,7 +62,23 @@ function mp_stacks_video_backgrounds_additional_items_array( $items_array ) {
 			'field_conditional_id' => 'brick_bg_video_source',
 			'field_conditional_values' => array( 'custom' ),
 			'field_showhider' => 'brick_bg_video_showhider'
-		)
+		),
+		'mp_stacks_video_backgrounds_color_overlay' =>  array(
+			'field_id'			=> 'brick_bg_video_color_overlay',
+			'field_title' 	=> __( 'Color Overlay', 'mp_stacks'),
+			'field_description' 	=> 'Pick a color to overlay on top of the video. This can help text content to "pop".',
+			'field_type' 	=> 'colorpicker',
+			'field_value' => '',
+			'field_showhider' => 'brick_bg_video_showhider'
+		),
+		'mp_stacks_video_backgrounds_color_opacity' =>  array(
+			'field_id'			=> 'brick_bg_video_color_opacity',
+			'field_title' 	=> __( 'Color Opacity', 'mp_stacks'),
+			'field_description' 	=> 'Select how transparent the color overlay should be.',
+			'field_type' 	=> 'input_range',
+			'field_value' => '50',
+			'field_showhider' => 'brick_bg_video_showhider'
+		),
 	);
 	
 	return mp_core_insert_meta_fields( $items_array, $new_items, 'brick_bg_hook_anchor_0' );
