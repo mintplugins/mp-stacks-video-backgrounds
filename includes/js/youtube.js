@@ -17,7 +17,7 @@ function onYouTubeIframeAPIReady() {
 			videoId: 'doesnotmatter',
 			width: '100%',
 			height: '100%',
-			playerVars: { 'controls': 0, 'modestbranding': 1, 'showinfo':0, 'wmode':'transparent', 'enablejsapi':1 , 'origin':'http://localhost:8888', 'rel':0, 'autoplay':1, 'html':1 },
+			playerVars: { 'controls': 0, 'modestbranding': 1, 'showinfo':0, 'wmode':'transparent', 'enablejsapi':1 , 'origin':'', 'rel':0, 'autoplay':1, 'html':1 },
 			events: {
 				'onReady': mp_stacks_video_bgs_on_ready,
 				'onStateChange': mp_stacks_video_bgs_on_state_change
@@ -49,7 +49,9 @@ function mp_stacks_video_bgs_on_state_change(event) {
 	if ( event.data == YT.PlayerState.ENDED ){
 	
 		//Loop it by starting it over
+		event.target.seekTo(1, true);
 		event.target.playVideo();
+		
 	
 	}
 	
