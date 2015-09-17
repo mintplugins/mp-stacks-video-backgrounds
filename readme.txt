@@ -4,15 +4,15 @@ Donate link: http://mintplugins.com/
 Tags: page, builder, stacks, bricks
 Requires at least: 3.5
 Tested up to: 4.1
-Stable tag: 1.0.0.2
+Stable tag: 1.0.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This is an addon to the MP Stacks plugin which allows you to have a looping video in the background of a brick.
+Add a Background Video to any Brick in MP Stacks.
 
 == Description ==
 
-This is an addon to the MP Stacks plugin which allows you to have a looping video in the background of a brick.
+Add a Background Video to any Brick in MP Stacks sourced from YouTube, Vimeo, or your own custom video.
 
 == Installation ==
 
@@ -32,6 +32,11 @@ See full instructions at http://mintplugins.com/doc/mp-stacks
 
 
 == Changelog ==
+
+= 1.0.0.3 = September 17, 2015
+* Removed localhost as the origin in youtube.js
+* Added color overlay over background videos so you can add tint to the background video.
+* Front End Scripts now enqueued only when needed.
 
 = 1.0.0.2 = May 15, 2015
 * Proper video sizing for smaller devices.
