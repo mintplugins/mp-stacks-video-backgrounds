@@ -59,11 +59,11 @@ function mp_stacks_video_background( $html_output, $post_id ){
 			//Add style lines to css output
 			$color_overlay_css_output = 'background-color:rgba(' . $color_overlay_rgb_array[0] . ', ' . $color_overlay_rgb_array[1] . ' , ' . $color_overlay_rgb_array[2] . ', ' . $color_opacity . ')';
 
-			$html_output .= '<div class="mp-stacks-video-backgrounds-overlay" style="z-index:2; position:absolute; width:100%; height:100%; ' . $color_overlay_css_output . ';"></div>';
+			$html_output .= '<div class="mp-stacks-video-backgrounds-overlay" style="z-index:2; position:absolute; width:100%; height:100%; ' . esc_attr(  $color_overlay_css_output ) . ';"></div>';
 		}
 
 		//Image which sizes the video correctly to 16x9
-		$html_output .= '<img class="mp-stacks-video-bg-placeholder-img" style="position:relative; display:block; padding:0px; margin-bottom:0px; min-width:100%; min-height: 100%; max-width:999%; z-index:2;" src="' . MP_CORE_PLUGIN_URL . 'includes/images/16x9.png' . '" parent_brick_id="mp-brick-' . $post_id . '"/>';
+		$html_output .= '<img class="mp-stacks-video-bg-placeholder-img" style="position:relative; display:block; padding:0px; margin-bottom:0px; min-width:100%; min-height: 100%; max-width:999%; z-index:2;" src="' . MP_CORE_PLUGIN_URL . 'includes/images/16x9.png' . '" parent_brick_id="mp-brick-' . esc_attr( $post_id ) . '"/>';
 
 		//If this video is coming from YouTube
 		if ( $brick_bg_video_source == 'youtube' ){
@@ -77,7 +77,7 @@ function mp_stacks_video_background( $html_output, $post_id ){
 			}
 
 			//Create iframe with settings for youtube
-			$html_output .= '<iframe id="mp-stacks-video-bg-youtube-' . $post_id . '" class="mp-stacks-video-bg-youtube mp-stacks-video-bg-video" type="text/html" src="https://www.youtube.com/embed/' . $video_id . '?enablejsapi=1&controls=0&modestbranding=1&showinfo=0&wmode=transparent&rel=0&autoplay=1&muted=1&html5=1&?VQ=HD720" frameborder="0" style="position:absolute; width:100%; height:100%; max-width:999%; top:0; left:0px; z-index:1;" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+			$html_output .= '<iframe id="mp-stacks-video-bg-youtube-' . esc_attr( $post_id ) . '" class="mp-stacks-video-bg-youtube mp-stacks-video-bg-video" type="text/html" src="https://www.youtube.com/embed/' . esc_attr( $video_id ) . '?enablejsapi=1&controls=0&modestbranding=1&showinfo=0&wmode=transparent&rel=0&autoplay=1&muted=1&html5=1&?VQ=HD720" frameborder="0" style="position:absolute; width:100%; height:100%; max-width:999%; top:0; left:0px; z-index:1;" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
 		}
 		//If video is coming from Vimeo
 		else if( $brick_bg_video_source == 'vimeo' ){
@@ -103,7 +103,7 @@ function mp_stacks_video_background( $html_output, $post_id ){
 		//If video is coming from an uploaded mp4
 		else if( $brick_bg_video_source == 'custom' ){
 			$html_output .= '
-			<video id="mp-stacks-video-bg-local-' . $post_id . '" class="mp-stacks-video-bg-custom mp-stacks-video-bg-video"  style="position:absolute; width:100%; height:100%; max-width:999%; top:0; left:0px; z-index:1;" mp_stacks_bg_video_url="' . $custom_video_url . '" muted autoplay loop playsinline></video>';
+			<video id="mp-stacks-video-bg-local-' . esc_attr( $post_id ) . '" class="mp-stacks-video-bg-custom mp-stacks-video-bg-video"  style="position:absolute; width:100%; height:100%; max-width:999%; top:0; left:0px; z-index:1;" mp_stacks_bg_video_url="' . esc_attr( $custom_video_url ) . '" muted autoplay loop playsinline></video>';
 		}
 
 
