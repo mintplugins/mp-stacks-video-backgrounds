@@ -12,7 +12,7 @@
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @author      Philip Johnston
  */
- 
+
 /**
  * Function which adds Video Background as an option the brick background metabox
  *
@@ -22,9 +22,9 @@
  * @return   void
  */
 function mp_stacks_video_backgrounds_additional_items_array( $items_array ) {
-	
-	$new_items = array( 
-		
+
+	$new_items = array(
+
 		'mp_stacks_video_backgrounds_showhider_option' => array(
 			'field_id'			=> 'brick_bg_video_showhider',
 			'field_title' 	=> __( 'Background Video', 'mp_stacks'),
@@ -32,7 +32,7 @@ function mp_stacks_video_backgrounds_additional_items_array( $items_array ) {
 			'field_type' 	=> 'showhider',
 			'field_value' => '',
 		),
-		
+
 		'mp_stacks_video_backgrounds_src_option' => array(
 			'field_id'			=> 'brick_bg_video_source',
 			'field_title' 	=> __( 'Background Video Source', 'mp_stacks'),
@@ -42,7 +42,7 @@ function mp_stacks_video_backgrounds_additional_items_array( $items_array ) {
 			'field_select_values' => array( 'youtube' => 'YouTube', 'vimeo' => 'Vimeo', 'custom' => 'Custom Video File' ),
 			'field_showhider' => 'brick_bg_video_showhider'
 		),
-		
+
 		'mp_stacks_video_backgrounds_url_option' =>  array(
 			'field_id'			=> 'brick_bg_video',
 			'field_title' 	=> __( 'Background Video', 'mp_stacks'),
@@ -63,16 +63,6 @@ function mp_stacks_video_backgrounds_additional_items_array( $items_array ) {
 			'field_conditional_values' => array( 'custom' ),
 			'field_showhider' => 'brick_bg_video_showhider'
 		),
-			'mp_stacks_video_backgrounds_mute_bool' =>  array(
-			'field_id'                      => 'brick_bg_video_mute_bool',
-			'field_title'   => __( 'Mute Video?', 'mp_stacks'),
-			'field_description'     => 'Check box to mute audio (required for mobile devices).',
-			'field_type'    => 'checkbox',
-			'field_value' => '',                        'field_showhider' => 'brick_bg_video_showhider',
-			'field_conditional_id' => 'brick_bg_video_source',
-			'field_conditional_values' => array( 'custom' ),
-			'field_showhider' => 'brick_bg_video_showhider'
-               ),
 		'mp_stacks_video_backgrounds_color_overlay' =>  array(
 			'field_id'			=> 'brick_bg_video_color_overlay',
 			'field_title' 	=> __( 'Color Overlay', 'mp_stacks'),
@@ -90,8 +80,8 @@ function mp_stacks_video_backgrounds_additional_items_array( $items_array ) {
 			'field_showhider' => 'brick_bg_video_showhider'
 		),
 	);
-	
+
 	return mp_core_insert_meta_fields( $items_array, $new_items, 'brick_bg_hook_anchor_0' );
-		
+
 }
 add_filter('mp_stacks_bg_items_array','mp_stacks_video_backgrounds_additional_items_array');
