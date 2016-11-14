@@ -102,9 +102,12 @@ function mp_stacks_video_background( $html_output, $post_id ){
 		}
 		//If video is coming from an uploaded mp4
 		else if( $brick_bg_video_source == 'custom' ){
+			$brick_bg_video_mute_bool = mp_core_get_post_meta ( $post_id, 'brick_bg_video_mute_bool' );
+			$brick_bg_video_mute_text = ( $brick_bg_video_mute_bool ? $brick_bg_video_mute_text = "muted" : $brick_bg_video_mute_text = "");
 			$html_output .= '
-			<video id="mp-stacks-video-bg-local-' . $post_id . '" class="mp-stacks-video-bg-custom mp-stacks-video-bg-video"  style="position:absolute; width:100%; height:100%; max-width:999%; top:0; left:0px; z-index:1;" mp_stacks_bg_video_url="' . $custom_video_url . '" autoplay loop></video>';
+			<video id="mp-stacks-video-bg-local-' . $post_id . '" class="mp-stacks-video-bg-custom mp-stacks-video-bg-video"  style="position:absolute; width:100%; height:100%; max-width:999%; top:0; left:0px; z-index:1;" mp_stacks_bg_video_url="' . $custom_video_url . '" ' . $brick_bg_video_mute_text . ' autoplay loop playsinline></video>';
 		}
+
 		
 		//Close Video Container div
 		$html_output .= '</div>';
