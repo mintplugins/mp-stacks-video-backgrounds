@@ -47,8 +47,7 @@ function mp_stacks_video_background( $html_output, $post_id ){
 		//Use the same functions for the normal circumstance, just change the variables
 		$custom_video_url = $custom_mobile_video_url;
 		$foreign_video_url = '';
-		$brick_bg_video_source = '';
-		$brick_bg_video_source == 'custom'
+		$brick_bg_video_source == 'custom';
 	}
 
 
