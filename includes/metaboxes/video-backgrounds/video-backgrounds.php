@@ -63,6 +63,24 @@ function mp_stacks_video_backgrounds_additional_items_array( $items_array ) {
 			'field_conditional_values' => array( 'custom' ),
 			'field_showhider' => 'brick_bg_video_showhider'
 		),
+		'mp_stacks_video_backgrounds_custom_mobile_option' => array(
+			'field_id'			=> 'brick_bg_video_custom_mobile_option',
+			'field_title' 	=> __( 'Custom URL for Mobile?', 'mp_stacks'),
+			'field_description' 	=> 'Do you want to set a separate custom URL for mobile?' ,
+			'field_type' 	=> 'checkbox',
+			'field_value' 	=> '',
+                        'field_showhider' => 'brick_bg_video_showhider'
+		),
+		'mp_stacks_video_backgrounds_custom_mobile_url' =>  array(
+			'field_id'			=> 'brick_bg_video_custom_mobile_url',
+			'field_title' 	=> __( 'Background Video URL for Mobile', 'mp_stacks'),
+			'field_description' 	=> 'Upload/Enter the URL to the video',
+			'field_type' 	=> 'mediaupload',
+			'field_value' => '',
+			'field_conditional_id' => 'brick_bg_video_custom_mobile_option',
+                        'field_conditional_values' => array( 'true' ),  
+			'field_showhider' => 'brick_bg_video_showhider'
+		),
 		'mp_stacks_video_backgrounds_color_overlay' =>  array(
 			'field_id'			=> 'brick_bg_video_color_overlay',
 			'field_title' 	=> __( 'Color Overlay', 'mp_stacks'),
