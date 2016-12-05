@@ -26,6 +26,7 @@
 function mp_stacks_video_background( $html_output, $post_id ){
 
 	$brick_bg_video_source = mp_core_get_post_meta( $post_id, 'brick_bg_video_source' );
+	$brick_bg_video_custom_mobile_option = mp_core_get_post_meta( $post_id, 'brick_bg_video_custom_mobile_option' );
 
 	$foreign_video_url = mp_core_get_post_meta( $post_id, 'brick_bg_video' );
 	$custom_video_url = mp_core_get_post_meta( $post_id, 'brick_bg_video_custom_url' );
@@ -34,15 +35,22 @@ function mp_stacks_video_background( $html_output, $post_id ){
 	$color_overlay = mp_core_get_post_meta( $post_id, 'brick_bg_video_color_overlay', 'none' );
 	$color_opacity = mp_core_get_post_meta( $post_id, 'brick_bg_video_color_opacity', 50 );
 	$color_opacity = $color_opacity / 100;
+	$custom_mobile_video_url = mp_core_get_post_meta( $post_id, 'brick_bg_video_custom_mobile_url' );
+
 
 	//Convert to rgb from hex
 	$color_overlay_rgb_array = $color_overlay != 'none' ? mp_core_hex2rgb($color_overlay) : NULL;
 
 
-	//If this is an iphone or ipad, we don't want to show any video background cause it can't handle it
-	if ( $brick_bg_video_source != 'custom' && ( mp_core_is_iphone() || mp_core_is_ipad() ) ){
-		return false;
+	//If this is an iPhone or iPad and $brick_bg_video_custom_mobile_option is true and $custom_mobile_video_url is set
+	if ( $brick_bg_video_custom_mobile_option && !empty( $custom_mobile_video_url ) && ( mp_core_is_iphone() || mp_core_is_ipad() ) ){
+		//Use the same functions for the normal circumstance, just change the variables
+		$custom_video_url = $custom_mobile_video_url;
+		$foreign_video_url = '';
+		$brick_bg_video_source = '';
+		$brick_bg_video_source == 'custom'
 	}
+
 
 	//If a background video has been entered
 	if ( !empty( $foreign_video_url ) || !empty( $custom_video_url ) ){
@@ -52,7 +60,6 @@ function mp_stacks_video_background( $html_output, $post_id ){
 
 		//Video Container div
 		$html_output .= '<div class="mp-stacks-video-backgrounds-container" style="position:relative;">';
-
 		//If a color overlay has been set
 		if ( !empty( $color_overlay_rgb_array ) ){
 
